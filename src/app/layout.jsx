@@ -1,4 +1,4 @@
-import Navbar from "@/components/Utilities/Navbar";
+import Navbar from "@/components/AnimeList/Navbar";
 import { Gabarito } from "next/font/google";
 import "./globals.css";
 
