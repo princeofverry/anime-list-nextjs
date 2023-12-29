@@ -4,15 +4,14 @@ import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 
 const InputSearch = () => {
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter'){handleSearch(e)}
-  }
   const searchRef = useRef();
-  const router = useRouter()
+  const router = useRouter();
   const handleSearch = (event) => {
-    event.preventDefault();
-    const keyword = searchRef.current.value
-    router.push(`/search/${keyword}`)
+    if (event.key === "Enter" || event.type === "click") {
+      event.preventDefault();
+      const keyword = searchRef.current.value;
+      router.push(`/search/${keyword}`);
+    }
   };
   return (
     <div className="relative">
@@ -20,7 +19,7 @@ const InputSearch = () => {
         placeholder="cari animek!"
         className="w-full p-2 rounded-md"
         ref={searchRef}
-        onKeyDown={handleKeyPress}
+        onKeyDown={handleSearch}
       />
       <button className="absolute top-2 end-2" onClick={handleSearch}>
         <MagnifyingGlass size={24} />
