@@ -1,7 +1,6 @@
 import React from "react";
 import AnimeList from "../components/AnimeList";
-import Link from "next/link";
-import Header from "@/components/AnimeList/header";
+import Header from "@/components/AnimeList/Header";
 
 const Page = async () => {
   const response = await fetch(
